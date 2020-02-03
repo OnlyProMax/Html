@@ -1,0 +1,420 @@
+html{
+  font-size:62.5%; /*Reset para rems. 62.5% REM = 10px de 16px*/
+}
+body{
+  font-family: "Raleway";
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+/* header */
+.site-header{
+  background-color: #333333;
+  padding:1rem 0 3rem 0;
+}
+.site-header.inicio{
+  background-image: url(../img/header.jpg);
+  background-position: center center; /*Con este position, muestra el centro de la imágen*/
+  background-size: cover; /*Propiedad que dice que tome todo el tamaño de la imagen, respetando sus proporciones*/
+  height: 100vh; /*VH es viewport height, que significa de esta forma, el tamaño de la pantalla en 100%*/
+  min-height: 60rem; /*minimo de tamaño para la imágen*/
+}
+.contenido-header{ /*La barra y el H1 son los únicos que se van a acomodar de esta forma.*/
+  height: 100%; /*Esta tomando todo el espacio del header, elemento padre.*/
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+/*Como esta con el display flex, con flex direction column, el "justify-content: space-between" lo separa de arriba para abajo
+Así funciona con el flex-dirección:column*/
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .contenido-header{
+    text-align: left;
+  }
+}
+.contenido-header h1{
+  color:#ffffff;
+  padding-bottom: 2rem;
+  max-width: 60rem;
+  line-height: 4rem; /*Espacio entre lineas*/
+}
+
+.barra{
+  padding-top:3rem;
+}
+@media (min-width: 768px){
+  .barra{
+    display: flex; /*Habilitas flexbox con - display: flex - */
+    justify-content: space-between;  /*Con esto, posicionas el contenido de izquierda a derecha. */
+    padding-top:3rem;
+    align-items: center; /*Centra */
+  }
+}
+
+/* Globales*/
+img{
+  max-width: 100%;
+}
+.contenedor{
+  width: 95%;
+  max-width: 120rem;
+  margin-left: auto; /*Centrarlo con margin left y auto, funciona para centrar. Desde el margin izquierdo a derecho.*/
+  margin-right: auto; /*Funciona como agujas del reloj. Tambien funciona poniendo - margin: auto; - */
+}
+h1{
+  font-size:3.8rem;
+}
+h2{
+  font-size:3.4rem;
+}
+h3{
+  font-size:3rem;
+}
+h4{
+  font-size:2.6rem;
+}
+/*Utilidades*/
+.seccion{
+  margin-top:2rem;
+  margin-bottom: 2rem;
+}
+.fw-300{
+  font-weight: 300;
+}
+.centrar-texto{
+  text-align:center;
+}
+.d-block{
+  display: block;
+}
+/*---- Botones ----*/
+.boton{
+  padding:1rem 3rem;
+  text-align:center;
+  margin:auto;
+  font-weight: 600;
+  text-decoration: none;
+  font-size:1.8rem;
+  display: block;
+  flex: 0 0 100%;
+}
+@media(min-width: 768px){
+  .boton{
+    display: inline-block;
+    flex: 0 0 auto; /* Si son elementos de flexbox, esto no va a generar conflicto con display:block */
+  }
+}
+.boton-amarillo{
+  background-color: orange;
+  color:#ffffff;
+}
+.boton-verde{
+  background-color: #71b100;
+  color:#ffffff;
+}
+.ver-todas{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*Navegación*/
+.navegacion a{
+  color: #ffffff;
+  text-decoration: none;
+  font-size:2.2rem;
+  display: block;
+}
+@media (min-width: 768px) {
+  .navegacion a{
+    font-size: 1.8rem;
+    display: inline-block;
+    margin-right: 2rem;
+  }
+  .navegacion a:last-of-type{
+    margin-right: 0;
+  }
+}
+.navegacion a:hover{ /*Cuando le doy hover, cambia de color.*/
+  color:purple;
+}
+.navegacion a:last-of-type{ /*"al ultimo, no le des margin. Eso signitica esta propiedad", es un pseudo selector*/
+  margin:0;
+}
+/* Mobile menu */
+.mobile-menu{
+  width: 3rem;
+}
+@media (min-width: 768px) {
+  .mobile-menu{
+    display: none;
+  }
+}
+navegacion:target{
+  display: block;
+}
+.navegacion{
+  display: none;
+}
+@media (min-width: 768px) {
+  .navegacion{
+    display: block;
+    text-align: center;
+  }
+}
+
+
+
+
+@media (min-width: 768px) {
+  /*Iconos nosotros*/
+  .iconos-nosotros{
+    display:flex;
+    justify-content: space-between;
+  }
+}
+.iconos{
+  text-align: center;
+}
+@media (min-width: 768px){
+  .iconos{
+    flex-basis: calc(33.3% - 1rem );
+  }
+}
+.iconos h3{
+  text-transform: uppercase;
+}
+/*Anuncios*/
+@media (min-width: 768px){
+  .contenedor-anuncios{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 768px){
+  .anuncios{
+    flex-grow: 0;
+    flex-shrink: 0; /*Esta propiedad hace que el tamaño que da el basis, no se modifique.*/
+    flex-basis:calc(33.3% - 1rem);
+    /*Para reemplazar las 3 propiedades en una, se utiliza: flex. Con flex quedaria:
+      flex: 0 0 calc(33.3% - 1rem);
+      Escrito así, tendria el mimsmo funcionamiento que las tres propiedades aplicadas de flexbox
+    */
+    justify-content: space-between;
+    border: 1px solid #B5B5B5;
+    background: #f5f5f5;
+    margin-bottom: 2rem;
+  }
+}
+
+.contenido-anuncio{
+  padding:2rem;
+}
+.contenido-anuncio h3,
+.contenido-anuncio p{
+  margin:0;
+}
+.precio{
+  color:green;
+  font-weight: 700;
+}
+.iconos-caracteristicas{
+  list-style: none;
+  padding:0;
+  display: flex;
+  justify-content: space-evenly;
+  flex:1;
+  max-width: 500px;
+}
+.iconos-caracteristicas li{
+
+  display: flex;
+}
+.iconos-caracteristicas li img{
+  margin-right: 2rem;
+}
+/*---> Botones <-----*/
+
+/*--- Contacto home ---*/
+  .imagen-contacto{
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center; /*Centra la imagen*/
+    background-size: cover;
+    height: 40rem;
+    display: flex; /*Siempre habilita el flexbox con display flex*/
+    align-items: center; /*Centra los elementos*/
+  }
+  .contenido-contacto{
+    flex: 0 0 95%; /*Factor de crecimiento, detecta el tamaño disponible*, divide los elementos por 1000 px*/
+    color:white;
+  }
+  .contenido-contacto p{
+    font-size: 1.8rem;
+  }
+/*--- Sección inferior ---*/
+@media (min-width: 768px) {
+  .seccion-inferior{
+    display: flex;
+    justify-content: space-between;
+  }
+  .seccion-inferior .blog{
+    flex-basis:60%;
+  }
+  .seccion-inferior .testimoniales{
+    flex-basis: calc(40% - 2rem);
+  }
+}
+@media (min-width: 768px){
+  .entrada-blog {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.entrada-blog{
+  margin-bottom: 2rem;
+}
+.entrada-blog:last-of-type{ /*El last of type, dice que agregue el margin bottom en el último elemento*/
+  margin-bottom:0;
+
+}
+@media (min-width: 768px){
+  .entrada-blog .imagen{
+    flex-basis: 40%;
+  }
+  .entrada-blog .texto-entrada{
+    flex-basis: calc(60% - 3rem);
+  }
+}
+.texto-entrada h4{
+  margin:0;
+}
+.texto-entrada a{
+  color:black;
+  text-decoration: none;
+}
+.texto-entrada h4::after{ /*Es un pseudo elemento*/
+  content: '';
+  display: block; /*Los pseudo elementos no tienen un display definido */
+  width: 15rem;
+  height: .5rem;
+  background-color: green;
+  margin-top:1rem;
+}
+.texto-entrada span{
+  color:orange;
+}
+.testimonial{
+  background-color: green;
+  font-size:2.4rem;
+  padding:2rem;
+  color:white;
+  border-radius:5rem;
+}
+.testimonial p{
+  text-align:right;
+}
+.testimonial blockquote::before{
+  content:'';
+  background-image: url(../img/comilla.svg);
+  width: 5rem;
+  height: 6rem;
+  display: block; /*Porque le di un ancho y un alto, requiere del display block. Por que los pseudo elementos no tienen un display definido*/
+  position: absolute;
+  left:-2rem;
+}
+.testimonial blockquote{
+  position: relative;
+  padding-left: 5rem;
+  font-weight: 300;
+}
+/*footer*/
+.site-footer{
+  background-color:#333333;
+  margin:0;
+}
+.contenedor-footer{
+  padding:3rem 0;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .contenedor-footer{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.site-footer nav{
+  display: none;
+}
+@media (min-width: 768px) {
+  .site-footer nav{
+    display: block;
+  }
+}
+
+.copyright{
+  margin:0;
+  color:#ffffff;
+}
+/*---> Páginas interiores <---*/
+@media (min-width: 768px) {
+  .contenido-nosotros{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+  }
+}
+
+/*hace una grilla y el grid template columns lo divide en dos, que es la cantidad utilizada en este caso. */
+.texto-nosotros blockquote{
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
+  padding: 2rem;
+}
+.resumen-propiedad{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*Alinea verticalmente mientras que justify content alinea horizontalmente*/
+}
+.contenido-centrado{
+  max-width: 800px;
+}
+.textos{
+  text-align:center;
+}
+
+/*Contacto*/
+label{
+  display: block;
+}
+/*
+Seleccionamos mediante el type, el/los inputs que le daremos los estilos
+
+input[type="text"],
+input[type="mail"],
+input[type="tel"]
+{
+  padding:1rem;
+  display: block;
+  width: 98%;
+  background-color: #e1e1e1;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 1rem;
+}
+*/
+input:not([type="submit"]), textarea, select{
+  padding:1rem;
+  display: block;
+  width: 98%;
+  background-color: #e1e1e1;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 1rem;
+}
+select{
+  -webkit-appeareance:none;
+}
