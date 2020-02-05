@@ -1,0 +1,234 @@
+/**
+* Si usamos float, es recomendable usar este snippet, para poder
+* usar los paddings sin problema alguno.
+Lo que hace es que los padding, que es "dar espacio hacia dentro"
+no tome como aliciente a los anchos que uses.
+POR ejemplo:
+.contenido-pincipal{
+width:800 (Sin este snippet, seria 860px).
+}
+START
+**/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+/*- END -*/
+*{
+    margin: 0;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+}
+p{
+    font-size: 16px;
+    line-height: 2;
+}
+.boton{
+    background-color: #00b8e4;
+    padding: 10px 60px;
+    display: inline-block; /* Nos da más separación y control sobre los margin */
+    margin-top:10px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    transition: background-color .3s ease-in-out; /* Transición al boton */
+}
+.boton:hover{
+    background-color: #2281e4;
+}
+img{
+    max-width: 100%;
+}
+/**
+* Navegación responsive
+*/
+.barra{
+    overflow: hidden;
+}
+.mobile-menu{
+    color:#fff;
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+    padding: 20px 0;
+}
+/**
+*
+Prestarle atención al :target. Las templates la usan para probar distintos
+colores y así poder mostrar otras cosas. No es necesario JS, con un ID es más
+rápido.
+*
+*/
+#nav:target{
+    max-height: 800px;
+}
+.navegacion-principal{
+    max-height: 0;
+    transition: .5s;
+}
+
+
+@media (min-width: 768px) {
+    .navegacion-principal{
+        max-height: unset;
+    }
+    .mobile-menu,
+    .cerrar {
+        display: none;
+    }
+}
+
+.site-header{
+    padding: 20px 0;
+}
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Una solución para los float, es usar
+    - overflow: auto;
+    De esta forma, todo lo que agregues desde FLOAT
+    que tiene el contenedor, va a ir hacia abajo.
+    */
+}
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+/* Nav style */
+.barra{
+   background-color: #DB008B;
+}
+.navegacion-principal a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+@media(min-width: 768px){
+    .navegacion-principal a{
+        display: inline-block;
+    }
+}
+.navegacion-principal a:hover{
+    background-color: #00b8e4;
+    transition: 0.5ms;
+}
+
+/**
+* Contenedores principales
+*/
+.contenido-principal{
+    margin-top: 40px;
+}
+.contenido-principal,
+.sidebar{
+ padding: 20px;
+}
+@media (min-width: 768px){
+    .contenido-principal{
+        width: 70%;
+        float: left;
+        padding: 0 60px 0 0;
+    }
+    .sidebar{
+        width: 30%;
+        float: right;
+        padding: 0;
+    }
+}
+/**
+* Entradas de BLOG
+*/
+h2{
+    color: #00b8e4;
+    margin-bottom: 20px;
+}
+.entrada{
+    margin-bottom: 60px;
+}
+.entrada:last-of-type{
+    margin-bottom: 0;
+}
+.entrada img{
+    /*
+    Por defecto todas las imagenes
+    son:
+     display: inline
+    */
+    display: block;
+    width: 100%;
+}
+@media (min-width: 480px){
+    .entrada img{
+        width: 300px;
+        float: left;
+        margin: 0 30px 0 0;
+    }
+}
+.entrada p{
+    text-align: justify;
+}
+/* Sidebar */
+.sidebar ul{
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li{
+    padding: 10px;
+}
+.sidebar ul li:hover {
+    background-color: #2281e4;
+}
+
+.sidebar ul li a{
+    color: #00b8e4;
+    font-size: 18px;
+    text-decoration: none;
+}
+.sidebar ul li a:hover{
+    color: #fff;
+}
+.footer-site{
+    background-color: #DB008B;
+    padding-top: 40px;
+    margin-top: 60px;
+    text-align: center;
+}
+.footer-site h2{
+    color: #fff;
+}
+.footer-site a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+    margin-right: 20px;
+}
+.footer-site a:last-of-type{
+    margin-right:  0;
+}
+.copyright{
+    background-color: #b10474;
+    margin: 50px 0 0 0;
+    padding: 20px 0;
+
+}
+@media (min-width: 768px){
+    .footer-site .nosotros{
+        float: left;
+        width: 30%;
+        text-align: left;
+    }
+    .footer-sitio .menu{
+        float: right;
+        width: 50%;
+        text-align: right;
+    }
+}
