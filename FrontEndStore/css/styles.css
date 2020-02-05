@@ -1,0 +1,116 @@
+/* Agregar normalize */
+
+/**
+* Codigo a agregar para que el padding funciones bien. START
+*/
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+/**
+* Codigo a agregar para que el padding funciones bien. END
+*/
+body{
+    height: 100%;
+    background: #e570e7;
+    background: -moz-linear-gradient(top, #e570e7 0%, #c85ec7 51%, #a849a3 100%);
+    background: -webkit-linear-gradient(top, #e570e7 0%, #c85ec7 51%, #a849a3 100%);
+    background: linear-gradient(top, #e570e7 0%, #c85ec7 51%, #a849a3 100%);
+    background-attachment: fixed; /* Prestarle atención */
+    font-family: Arial, Helvetica sans-serif;
+}
+header{
+    text-align: center;
+    padding: 40px 0;
+}
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.hero{
+    margin-bottom: 40px;
+}
+.hero img{
+    display: block;
+    margin: 0 auto;
+}
+h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+img{
+    max-width: 100%;
+}
+.lista-productos{
+    margin-top: 40px;
+    padding: 0;
+    list-style: none;
+}
+.lista-productos li{
+    float: left;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+.lista-productos li:nth-child(3n+1){
+    /*
+    (2 * 0 + 1)
+    */
+    clear:both;
+    background-color: red;
+}
+.lista-productos li img{
+    border: 10px solid rgba(128, 1, 195, .45);
+}
+.lista-productos li img:hover{
+    border: 10px solid rgba(128, 1, 195, 1);
+    transition: border-color .3s ease-in-out;
+}
+/* Los selectores no deberian pasar de tres. */
+.lista-productos li p{
+    font-size:28px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #fff;
+}
+span.precio{
+    color: yellow;
+    font-size: 35px;
+}
+.boton{
+    color: #8001c3;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: yellow;
+    /* Por defecto tienen display inline, asique lo mejor es aplicarle
+    display: block
+    para poder manipularlo.
+    */
+    display: inline-block;
+    margin-top:20px;
+}
+.boton:hover{
+    background-color: yellowgreen;
+    transition: background-color .3s ease-in-out;
+}
+@media(min-width: 768px){
+    .lista-productos li:nth-child(3n+1){
+        clear: unset;
+    }
+    .lista-productos li:nth-child(3n+1){
+        /*
+        (2 * 0 + 1)
+        */
+        clear:both;
+        background-color: red;
+    }
+    .lista-productos li{
+        width: 33.3%;
+    }
+}
